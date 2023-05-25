@@ -12,7 +12,7 @@ export default function Navbar() {
             {menuShow ? (<DropdownMenu menuShow={menuShow} setMenuShow={setMenuShow}/>) 
             : 
             (
-            <div className="grid grid-cols-3 grid-rows-1 justify-center w-screen h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
+            <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-screen h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
                 <ul className="hidden md:flex md:flex-wrap mr-auto justify-center items-center gap-x-2 text-xs sm:text-sm sm:gap-x-4 md:gap-x-5 font-mono">
                     <li className="underline text-center">
                         <Link href="/" >Home</Link>
@@ -48,7 +48,7 @@ export default function Navbar() {
 
 export function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: React.Dispatch<React.SetStateAction<boolean>>}) {
     return (
-        <div className="font-rajdhani flex flex-col items-center bg-gradient-to-t from-blue-500 to-blue-200 justify-center gap-10 w-screen h-screen fixed z-50 bg-violet-400 p-10 pb-40">
+        <div className="font-rajdhani flex flex-col items-center bg-white justify-center gap-10 w-screen h-screen fixed z-50 text-black p-10 pb-40">
             <button className="flex-grow-0 flex-['2 2 0%'] mr-auto text-4xl" onClick={(() => setMenuShow(!menuShow))}>X</button>
             <div className="flex-grow flex flex-col justify-center gap-10 items-center">
                 <Link className="hover:underline text-4xl" onClick={(() => setMenuShow(!menuShow))} href="/" >Home</Link>
