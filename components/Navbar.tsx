@@ -52,7 +52,7 @@ export function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMen
             <button className="flex-grow-0 flex-['2 2 0%'] mr-auto text-4xl" onClick={(() => setMenuShow(!menuShow))}>X</button>
             <div className="flex-grow flex flex-col justify-center gap-10 items-center">
                 <Link className="hover:underline text-4xl" onClick={(() => setMenuShow(!menuShow))} href="/" >Home</Link>
-                <p className="hover:underline text-4xl">Shop</p>
+                <Link className="hover:underline text-4xl" onClick={(() => setMenuShow(!menuShow))} href="/Shop" >Shop</Link>
                 <Link className="hover:underline text-4xl" onClick={(() => setMenuShow(!menuShow))} href="/Contact" >Contact</Link>
                 <Link className="hover:underline text-4xl" onClick={(() => setMenuShow(!menuShow))} href="/About" >About</Link>
             </div>
