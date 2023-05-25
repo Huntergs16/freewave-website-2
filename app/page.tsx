@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Header from './components/header'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef } from 'react';
-import ForSale from './components/forSale';
+import ForSale from './components/ForSale';
 import 'swiper/css';
 
 export default function Home() {

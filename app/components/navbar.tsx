@@ -2,7 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import ShoppingCart from "./shoppingCart"
+import ShoppingCart from "./shoppingCart";
 
 export default function Navbar() {
     const [menuShow, setMenuShow] = useState<boolean>(false);
