@@ -1,10 +1,13 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Rajdhani } from 'next/font/google'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Head from 'next/head'
 
-const inter = Inter({ subsets: ['latin'] })
+const rajdhani = Rajdhani({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: 'Freewave',
@@ -26,7 +29,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body className={inter.className}>
+      <body className={rajdhani.className}>
       <Navbar />
         {children}
         <Footer />
