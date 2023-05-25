@@ -23,7 +23,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body className='font-rajdhani text-black min-h-screen flex flex-col w-screen max-w-[100rem] mx-auto'>
+      <body className='font-rajdhani text-black min-h-min flex flex-col w-screen max-w-[100rem] mx-auto'>
         <Navbar />
         <main className="flex-grow min-h-min">
           {children}

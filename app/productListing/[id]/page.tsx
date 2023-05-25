@@ -29,7 +29,7 @@ export default function ItemPage({params}: {
       }, [params.id]);
     
     return (
-        <div className="flex flex-col justify-center items-center min-h-min h-[70vh] w-full px-5 mx-auto font-rajdhani text-black">
+        <div className="flex flex-col justify-center items-center min-h-[70vh] h-min w-full px-5 mx-auto font-rajdhani text-black">
         {itemData && (
           <div key={itemData.id} className="h-full w-full grid grid-cols-1 sm:grid-cols-2 justify-center px-1 gap-x-2">
             <div className="relative h-4/6 min-h-[500px] bg-slate-100">
