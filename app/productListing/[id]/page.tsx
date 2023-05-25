@@ -39,12 +39,12 @@ export default function ItemPage({params}: {
               <p className="text-3xl font-bold overflow-x-scroll">{itemData?.id}</p>
               <br />
               {itemData.discount[0] ? (
-                <span className="flex gap-1 items-center">
+                <span className="px-2 sm:px-7 flex gap-1 items-center">
                   <p className="sm:text-lg text-base font-medium line-through">{itemData.price}</p>
                   <p className="sm:text-xl text-lg font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
                 </span>
               ) : (
-                <p className="sm:text-xl text-lg font-medium">{`${itemData.price} USD`}</p>
+                <p className="px-2 sm:px-7 sm:text-xl text-lg font-medium">{`${itemData.price} USD`}</p>
               )}
               <br />
               <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} />
