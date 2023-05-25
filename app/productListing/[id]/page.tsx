@@ -4,6 +4,7 @@ import productItem from "@/types/globalTypes";
 import { useEffect, useState } from "react";
 import { getItem } from "@/app/services/getItem";
 import Image from "next/image";
+import ShoppingCart from "@/components/ShoppingCart";
 
 interface SizeSelected {
     size: string;
@@ -86,8 +87,8 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
             <p className="h-[20vh] max-h-44 overflow-y-scroll">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-30" : ""} max-h-12 flex justify-center items-center text-white font-bold text-sm sm:text-lg w-full shadow-2xl p-3 bg-black bg-opacity-80 border-2 rounded-lg`}>
-                Add to cart
+            <button disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} max-h-12 flex justify-center items-center text-white font-bold text-sm sm:text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
+                <p>Add to cart</p>
             </button>
         </div>
     )
