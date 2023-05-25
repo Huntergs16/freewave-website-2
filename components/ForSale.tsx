@@ -21,18 +21,18 @@ export default function ForSale() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-1 gap-y-2 w-full h-min px-1 font-rajdhani text-black">
       {stock.map((item) => (
-        <Link href={`/productListing/${item.id}`} key={item.id} className="h-[80vw] sm:h-[35vw] w-full flex flex-col justify-start items-start">
-          <div className="relative h-[90%] w-full bg-slate-100">
-            <Image alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
+        <Link href={`/productListing/${item.id}`} key={item.id} className="h-[80vw] max-h-[25vh] sm:max-h-[30vh] lg:max-h-[40vh] sm:h-[35vw] w-full flex flex-col justify-start items-start">
+          <div className="relative h-[90%] w-full bg-stone-100">
+            <Image className="p-6 sm:p-4 lg:p-8 drop-shadow-2xl" alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
           </div>
           <p className="sm:text-lg text-sm font-semibold">{item.id}</p>
           {item.discount[0] ? (
-          <span className="flex gap-1">
+          <span className="flex gap-1 bg-white">
             <p className="sm:text-sm text-xs line-through">{item.price}</p>
             <p className="sm:text-sm text-xs">{`${item.discount[1]} USD`}</p>
             </span> 
             )  : (
-            <p className="sm:text-sm text-xs">{`${item.price} USD`}</p>
+            <p className="sm:text-sm text-xs bg-white">{`${item.price} USD`}</p>
           )}
         </Link>
       ))}

@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <div className="w-full h-min mb-6">
             <div className="w-full h-min">
-                <div className="relative w-screen h-full">
+                <div className="relative w-full h-full">
                     <Image 
                         quality={100}
                         src="/FW_header.png"

@@ -12,7 +12,7 @@ export default function Navbar() {
             {menuShow ? (<DropdownMenu menuShow={menuShow} setMenuShow={setMenuShow}/>) 
             : 
             (
-            <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-screen h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
+            <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-full h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
                 <ul className="hidden md:flex md:flex-wrap mr-auto justify-center items-center gap-x-2 text-xs sm:text-sm sm:gap-x-4 md:gap-x-5 font-mono">
                     <li className="underline text-center">
                         <Link href="/" >Home</Link>
