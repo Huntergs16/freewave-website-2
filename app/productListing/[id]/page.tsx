@@ -29,7 +29,7 @@ export default function ItemPage({params}: {
       }, []);
     
     return (
-    <div className="flex flex-col justify-center items-center h-[70vh]">
+    <div className="flex flex-col justify-center items-center h-[70vh] max-w-5xl mx-auto">
         {itemData && (
             <div key={itemData.id} className="h-full w-full grid grid-cols-2 justify-center px-1">
                 <div className="relative h-4/5 w-full bg-slate-100">
@@ -67,7 +67,8 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center gap-4">
+            <p className="w-full px-7 text-base font-semibold opacity-80 self-start">Select Size</p>
             <div className="w-full sm:w-[90%] h-min p-1 grid grid-rows-2 grid-cols-5 gap-x-2">
                 <button onClick={() => onSizeClicked("x-small")} className={`${sizeSelected?.size == "x-small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>XS</button>
                 <button onClick={() => onSizeClicked("small")} className={`${sizeSelected?.size == "small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>S</button>
@@ -80,11 +81,17 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
                 <p className="text-center text-sm opacity-50">{productInfo?.large}</p>
                 <p className="text-center text-sm opacity-50">{productInfo?.["x-large"]}</p>
             </div>
-            <p className={`${sizeSelected?.quantity == 0 ? "text-red-600": ""}`}>{sizeSelected?.quantity == 0 ? "Out of stock" : `${sizeSelected?.quantity} available`}</p>
+            <p className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "text-red-600" : ""} text-xl font-semibold`}>
+                {sizeSelected?.quantity === 0
+                    ? "Out of stock"
+                    : sizeSelected?.quantity !== undefined
+                    ? `${sizeSelected.quantity} available`
+                    : ""}
+                </p>            
             <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button className="w-max px-6 py-2 bg-blue-400">
+            <button disabled={sizeSelected?.quantity == 0 || sizeSelected == undefined} className={`${sizeSelected?.quantity == 0 || sizeSelected == undefined ? "bg-opacity-30" : ""} text-white font-bold text-lg w-full px-12 shadow-2xl py-2 bg-black bg-opacity-80 border-2 rounded-lg`}>
                 Add to cart
             </button>
         </div>
