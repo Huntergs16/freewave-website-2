@@ -29,7 +29,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body className={rajdhani.className}>
+      <body className='font-sans'>
       <Navbar />
         {children}
         <Footer />
