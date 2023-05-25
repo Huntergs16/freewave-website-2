@@ -37,7 +37,7 @@ export default function ItemPage({params}: {
                     <Image alt={"Product Details"} fill={true} style={{ objectFit: "contain", objectPosition: "center" }} src={itemData.img} />
                 </div>
                 <div className="flex flex-col py-12 sm:px-6">
-                    <p className="sm:text-3xl text-lg font-bold overflow-x-scroll">{itemData?.id}</p>
+                    <p className="sm:text-3xl text-xl font-bold overflow-x-scroll">{itemData?.id}</p>
                     <br />
                     {itemData.discount[0] ? (
                         <span className="flex gap-1 items-center">
