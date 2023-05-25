@@ -1,4 +1,4 @@
-import ForSale from "../components/forSale"
+import ForSale from "../components/ForSale"
 
 export default function Shop() {
     return (

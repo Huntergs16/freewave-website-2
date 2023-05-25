@@ -26,7 +26,7 @@ export default function ItemPage({params}: {
         };
     
         fetchData();
-      }, []);
+      }, [params.id]);
     
     return (
     <div className="flex flex-col justify-center items-center h-[70vh] max-w-5xl mx-auto">
