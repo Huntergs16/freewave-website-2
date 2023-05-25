@@ -1,6 +1,6 @@
 'use client';
-import Header from './components/Header';
-import ForSale from "./components/ForSale";
+import Header from "../components/Header";
+import ForSale from "../components/ForSale";
 import 'swiper/css';
 
 export default function Home() {
