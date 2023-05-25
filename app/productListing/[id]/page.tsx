@@ -4,7 +4,6 @@ import productItem from "@/types/globalTypes";
 import { useEffect, useState } from "react";
 import { getItem } from "@/app/services/getItem";
 import Image from "next/image";
-import ShoppingCart from "@/components/ShoppingCart";
 
 interface SizeSelected {
     size: string;
@@ -30,29 +29,29 @@ export default function ItemPage({params}: {
       }, [params.id]);
     
     return (
-    <div className="flex flex-col justify-center items-center min-h-min h-[70vh] max-w-5xl mx-auto font-rajdhani text-black">
+        <div className="flex flex-col justify-center items-center min-h-min h-[70vh] max-w-5xl px-5 mx-auto font-rajdhani text-black">
         {itemData && (
-            <div key={itemData.id} className="h-full w-full grid grid-cols-2 justify-center px-1 gap-x-2">
-                <div className="relative h-4/6 min-h-[500px] bg-slate-100">
-                    <Image alt={"Product Details"} fill={true} style={{ objectFit: "contain", objectPosition: "center" }} src={itemData.img} />
-                </div>
-                <div className="flex flex-col py-12 sm:px-6">
-                    <p className="sm:text-3xl text-xl font-bold overflow-x-scroll">{itemData?.id}</p>
-                    <br />
-                    {itemData.discount[0] ? (
-                        <span className="flex gap-1 items-center">
-                        <p className="sm:text-small text-xs font-medium line-through">{itemData.price}</p>
-                        <p className="sm:text-base text-small font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
-                        </span>
-                    ) : (
-                        <p className="sm:text-base text-small font-medium">{`${itemData.price} USD`}</p>
-                    )}
-                    <br />
-                    <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} />
-                </div>
+          <div key={itemData.id} className="h-full w-full grid grid-cols-1 sm:grid-cols-2 justify-center px-1 gap-x-2">
+            <div className="relative h-4/6 min-h-[500px] bg-slate-100">
+              <Image alt="Product Details" fill={true} style={{ objectFit: "contain", objectPosition: "center" }} src={itemData.img} />
             </div>
+            <div className="flex flex-col py-12 sm:px-6">
+              <p className="text-3xl font-bold overflow-x-scroll">{itemData?.id}</p>
+              <br />
+              {itemData.discount[0] ? (
+                <span className="flex gap-1 items-center">
+                  <p className="sm:text-small text-xs font-medium line-through">{itemData.price}</p>
+                  <p className="sm:text-base text-small font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
+                </span>
+              ) : (
+                <p className="sm:text-base text-small font-medium">{`${itemData.price} USD`}</p>
+              )}
+              <br />
+              <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} />
+            </div>
+          </div>
         )}
-    </div>
+      </div>
   );
 }
 
@@ -87,7 +86,7 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
             <p className="h-[20vh] max-h-44 overflow-y-scroll">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} max-h-12 flex justify-center items-center text-white font-bold text-sm sm:text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
+            <button disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} max-w-[70vw] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
                 <p>Add to cart</p>
             </button>
         </div>

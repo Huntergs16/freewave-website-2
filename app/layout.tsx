@@ -1,13 +1,7 @@
 import './globals.css'
-import { Rajdhani } from 'next/font/google'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Head from 'next/head'
-
-const rajdhani = Rajdhani({
-  weight: '400',
-  subsets: ['latin'],
-});
 
 export const metadata = {
   title: 'Freewave',
@@ -29,11 +23,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body className='font-rajdhani text-black w-screen max-w-[130rem] mx-auto'>
-      <Navbar />
-        {children}
+      <body className='font-rajdhani text-black min-h-screen flex flex-col w-screen max-w-[130rem] mx-auto'>
+        <Navbar />
+        <main className="flex-grow min-h-min">
+          {children}
+        </main>
         <Footer />
-        </body>
+      </body>
     </html>
   )
 }

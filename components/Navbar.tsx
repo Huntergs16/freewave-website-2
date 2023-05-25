@@ -48,7 +48,7 @@ export default function Navbar() {
 
 export function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: React.Dispatch<React.SetStateAction<boolean>>}) {
     return (
-        <div className="font-rajdhani flex flex-col items-center bg-white justify-center gap-10 w-screen h-screen fixed z-50 text-black p-10 pb-40">
+        <div className="font-rajdhani flex flex-col items-center bg-white justify-center gap-10 w-screen h-screen fixed z-50 font-semibold text-black p-10 pb-40">
             <button className="flex-grow-0 flex-['2 2 0%'] mr-auto text-4xl" onClick={(() => setMenuShow(!menuShow))}>X</button>
             <div className="flex-grow flex flex-col justify-center gap-10 items-center">
                 <Link className="hover:underline text-4xl" onClick={(() => setMenuShow(!menuShow))} href="/" >Home</Link>
