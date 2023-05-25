@@ -14,7 +14,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Rajdhani-Regular']
+      sans: ['Rajdhani-Regular'],
+      rajdhani: ["Rajdhani-Regular", "Rajdhani-Medium", "Rajdhani-Semibold", "Rajdhani-Bold"],
     },
   },
   extend: {
