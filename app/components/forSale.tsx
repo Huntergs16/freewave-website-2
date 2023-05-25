@@ -1,11 +1,11 @@
 'use client';
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import productItem from "@/types/globalTypes";
 import { findAll } from "../services/stock";
 import Image from 'next/image'
 import Link from "next/link";
 
-export default function forSale() {
+export default function ForSale() {
     
   const [stock, setStock] = useState<productItem[]>([]);
 
