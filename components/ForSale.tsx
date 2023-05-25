@@ -21,7 +21,7 @@ export default function ForSale() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-1 gap-y-2 w-full h-min px-1 font-mono">
       {stock.map((item) => (
-        <Link href={`/productListing/${item.id}`} key={item.id} className="h-[45vw] sm:h-[35vw] w-full flex flex-col justify-start items-start">
+        <Link href={`/productListing/${item.id}`} key={item.id} className="h-[80vw] sm:h-[35vw] w-full flex flex-col justify-start items-start">
           <div className="relative h-[90%] w-full bg-slate-100">
             <Image alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
           </div>
