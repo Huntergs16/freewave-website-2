@@ -32,12 +32,12 @@ export default function ItemPage({params}: {
     return (
     <div className="flex flex-col justify-center items-center min-h-min h-[70vh] max-w-5xl mx-auto font-rajdhani text-black">
         {itemData && (
-            <div key={itemData.id} className="h-full w-full grid grid-cols-2 justify-center px-1">
+            <div key={itemData.id} className="h-full w-full grid grid-cols-2 justify-center px-1 gap-x-2">
                 <div className="relative h-4/6 min-h-[500px] bg-slate-100">
                     <Image alt={"Product Details"} fill={true} style={{ objectFit: "contain", objectPosition: "center" }} src={itemData.img} />
                 </div>
-                <div className="flex flex-col py-12 px-6">
-                    <p className="text-3xl font-bold">{itemData?.id}</p>
+                <div className="flex flex-col py-12 sm:px-6">
+                    <p className="sm:text-3xl text-lg font-bold overflow-x-scroll">{itemData?.id}</p>
                     <br />
                     {itemData.discount[0] ? (
                         <span className="flex gap-1 items-center">
@@ -69,7 +69,7 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
 
     return (
         <div className="flex flex-col justify-center items-center gap-4 min-h-min font-rajdhani text-black">
-            <p className="w-full px-7 text-base font-semibold opacity-80 self-start">Select Size</p>
+            <p className="w-full px-2 sm:px-7 text-base font-semibold opacity-80 self-start">Select Size</p>
             <div className="w-full sm:w-[90%] h-min p-1 grid grid-rows-2 grid-cols-3 sm:grid-cols-5 gap-x-2">
                 <button onClick={() => onSizeClicked("x-small")} className={`${sizeSelected?.size == "x-small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>XS</button>
                 <button onClick={() => onSizeClicked("small")} className={`${sizeSelected?.size == "small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>S</button>
