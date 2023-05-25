@@ -67,7 +67,7 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center gap-4 min-h-min">
+        <div className="flex flex-col justify-center items-center gap-4 min-h-min font-rajdhani">
             <p className="w-full px-7 text-base font-semibold opacity-80 self-start">Select Size</p>
             <div className="w-full sm:w-[90%] h-min p-1 grid grid-rows-2 grid-cols-3 sm:grid-cols-5 gap-x-2">
                 <button onClick={() => onSizeClicked("x-small")} className={`${sizeSelected?.size == "x-small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>XS</button>
