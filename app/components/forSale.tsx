@@ -1,9 +1,9 @@
 'use client';
 import { useState, useEffect } from "react";
-import { collection, getDocs, DocumentData } from "firebase/firestore";
 import productItem from "@/types/globalTypes";
 import { findAll } from "../services/stock";
 import Image from 'next/image'
+import Link from "next/link";
 
 export default function forSale() {
     
@@ -18,20 +18,24 @@ export default function forSale() {
     fetchStock();
   }, []);
 
-    return (
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 w-full h-min px-5 ">
-        {stock.map((item) => (
-          <div key={item.id} className="h-[30vh] w-full bg-slate-50 flex flex-col justify-start items-start p-1">
-            <div className="relative h-4/5 w-full">
-              <Image alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
-            </div>
-            <p className="text-xl font-medium">{item.id}</p>
-            {item.discount[0]? 
-            <span className="flex gap-1"><p className="text-base line-through">${item.price}</p> <p>${item.discount[1]}</p></span> 
-              : 
-              <p className="text-base">${item.price}</p>}
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-1 gap-y-2 w-full h-min px-1 font-mono">
+      {stock.map((item) => (
+        <Link href={`/productListing/${item.id}`} key={item.id} className="h-[45vw] sm:h-[35vw] w-full flex flex-col justify-start items-start">
+          <div className="relative h-[90%] w-full bg-slate-100">
+            <Image alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
           </div>
-        ))}
-      </div>
-    )
+          <p className="sm:text-lg text-sm font-semibold">{item.id}</p>
+          {item.discount[0] ? (
+          <span className="flex gap-1">
+            <p className="sm:text-sm text-xs line-through">{item.price}</p>
+            <p className="sm:text-sm text-xs">{`${item.discount[1]} USD`}</p>
+            </span> 
+            )  : (
+            <p className="sm:text-sm text-xs">{`${item.price} USD`}</p>
+          )}
+        </Link>
+      ))}
+    </div>
+  )
 }

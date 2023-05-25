@@ -1,13 +1,14 @@
 interface productItem {
     id: string;
     img: string;
-    large: string;
-    medium: string;
-    small: string;
-    'x-large': string;
-    'x-small': string;
+    large: number;
+    medium: number;
+    small: number;
+    'x-large': number;
+    'x-small': number;
     price: string;
     discount: [boolean, string];
+    [key: string];
   }
 
 export default productItem;

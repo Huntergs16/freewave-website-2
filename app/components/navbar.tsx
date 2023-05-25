@@ -18,7 +18,7 @@ export default function Navbar() {
                         <Link href="/" >Home</Link>
                     </li>
                     <li className="underline">
-                        Shop
+                    <Link href="/Shop" >Shop</Link>
                     </li>
                     <li className="underline text-center">
                         <Link href="/Contact" >Contact</Link>
