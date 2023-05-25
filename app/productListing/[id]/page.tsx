@@ -69,17 +69,12 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
     return (
         <div className="flex flex-col justify-center items-center gap-4">
             <p className="w-full px-7 text-base font-semibold opacity-80 self-start">Select Size</p>
-            <div className="w-full sm:w-[90%] h-min p-1 grid grid-rows-2 grid-cols-5 gap-x-2">
+            <div className="w-full sm:w-[90%] h-min p-1 grid grid-rows-2 grid-cols-3 sm:grid-cols-5 gap-x-2">
                 <button onClick={() => onSizeClicked("x-small")} className={`${sizeSelected?.size == "x-small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>XS</button>
                 <button onClick={() => onSizeClicked("small")} className={`${sizeSelected?.size == "small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>S</button>
                 <button onClick={() => onSizeClicked("medium")} className={`${sizeSelected?.size == "medium" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>M</button>
                 <button onClick={() => onSizeClicked("large")} className={`${sizeSelected?.size == "large" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>L</button>
                 <button onClick={() => onSizeClicked("x-large")} className={`${sizeSelected?.size == "x-large" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>XL</button>
-                <p className="text-center text-sm opacity-50">{productInfo?.["x-small"]}</p>
-                <p className="text-center text-sm opacity-50">{productInfo?.small}</p>
-                <p className="text-center text-sm opacity-50">{productInfo?.medium}</p>
-                <p className="text-center text-sm opacity-50">{productInfo?.large}</p>
-                <p className="text-center text-sm opacity-50">{productInfo?.["x-large"]}</p>
             </div>
             <p className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "text-red-600" : ""} text-xl font-semibold`}>
                 {sizeSelected?.quantity === 0
@@ -88,10 +83,10 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
                     ? `${sizeSelected.quantity} available`
                     : ""}
                 </p>            
-            <p>
+            <p className="h-[20vh] max-h-44 overflow-y-scroll">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button disabled={sizeSelected?.quantity == 0 || sizeSelected == undefined} className={`${sizeSelected?.quantity == 0 || sizeSelected == undefined ? "bg-opacity-30" : ""} text-white font-bold text-lg w-full px-12 shadow-2xl py-2 bg-black bg-opacity-80 border-2 rounded-lg`}>
+            <button disabled={sizeSelected?.quantity == 0 || sizeSelected == undefined} className={`${sizeSelected?.quantity == 0 || sizeSelected == undefined ? "bg-opacity-30" : ""} max-h-12 flex justify-center items-center text-white font-bold text-sm sm:text-lg w-full shadow-2xl p-3 bg-black bg-opacity-80 border-2 rounded-lg`}>
                 Add to cart
             </button>
         </div>
