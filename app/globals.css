@@ -5,6 +5,26 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
+@font-face {
+  font-family: "Rajdhani-Regular";
+  src: url("../fonts/Rajdhani/Rajdhani-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Rajdhani-Medium";
+  src: url("../fonts/Rajdhani/Rajdhani-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Rajdhani-Semibold";
+  src: url("../fonts/Rajdhani/Rajdhani-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Rajdhani-Bold";
+  src: url("../fonts/Rajdhani/Rajdhani-Bold.ttf");
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

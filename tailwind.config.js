@@ -13,6 +13,15 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    fontFamily: {
+      sans: ['Rajdhani-SemiBold', 'Rajdhani-Medium']
+    },
+  },
+  extend: {
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+      rajdhani: ["Rajdhani-Regular", "Rajdhani-Medium", "Rajdhani-Semibold", "Rajdhani-Bold"],
+    },
   },
   plugins: [],
 }
