@@ -40,11 +40,11 @@ export default function ItemPage({params}: {
               <br />
               {itemData.discount[0] ? (
                 <span className="flex gap-1 items-center">
-                  <p className="sm:text-base text-xs font-medium line-through">{itemData.price}</p>
-                  <p className="sm:text-lg text-small font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
+                  <p className="sm:text-lg text-base font-medium line-through">{itemData.price}</p>
+                  <p className="sm:text-xl text-lg font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
                 </span>
               ) : (
-                <p className="sm:text-lg text-small font-medium">{`${itemData.price} USD`}</p>
+                <p className="sm:text-xl text-lg font-medium">{`${itemData.price} USD`}</p>
               )}
               <br />
               <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} />
