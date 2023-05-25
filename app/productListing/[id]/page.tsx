@@ -29,7 +29,7 @@ export default function ItemPage({params}: {
       }, [params.id]);
     
     return (
-        <div className="flex flex-col justify-center items-center min-h-min h-[70vh] max-w-5xl px-5 mx-auto font-rajdhani text-black">
+        <div className="flex flex-col justify-center items-center min-h-min h-[70vh] w-full px-5 mx-auto font-rajdhani text-black">
         {itemData && (
           <div key={itemData.id} className="h-full w-full grid grid-cols-1 sm:grid-cols-2 justify-center px-1 gap-x-2">
             <div className="relative h-4/6 min-h-[500px] bg-slate-100">
@@ -40,11 +40,11 @@ export default function ItemPage({params}: {
               <br />
               {itemData.discount[0] ? (
                 <span className="flex gap-1 items-center">
-                  <p className="sm:text-small text-xs font-medium line-through">{itemData.price}</p>
-                  <p className="sm:text-base text-small font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
+                  <p className="sm:text-base text-xs font-medium line-through">{itemData.price}</p>
+                  <p className="sm:text-lg text-small font-bold text-red-600">{`${itemData.discount[1]} USD`}</p>
                 </span>
               ) : (
-                <p className="sm:text-base text-small font-medium">{`${itemData.price} USD`}</p>
+                <p className="sm:text-lg text-small font-medium">{`${itemData.price} USD`}</p>
               )}
               <br />
               <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} />
