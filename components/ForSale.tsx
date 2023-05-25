@@ -23,7 +23,7 @@ export default function ForSale() {
       {stock.map((item) => (
         <Link href={`/productListing/${item.id}`} key={item.id} className="h-[80vw] max-h-[25vh] sm:max-h-[30vh] lg:max-h-[40vh] sm:h-[35vw] w-full flex flex-col justify-start items-start">
           <div className="relative h-[90%] w-full bg-stone-100">
-            <Image className="p-6 sm:p-4 lg:p-8 drop-shadow-2xl" alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
+            <Image className="p-2 sm:p-4 lg:p-8 drop-shadow-2xl" alt={item.id} fill={true} style={{objectFit:'contain', objectPosition:'center'}} src={item.img} />
           </div>
           <p className="sm:text-lg text-sm font-semibold">{item.id}</p>
           {item.discount[0] ? (
