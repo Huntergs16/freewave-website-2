@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import productItem from "@/types/globalTypes";
+import { productItem } from "@/types/globalTypes";
 import { findAll } from "../app/services/stock";
 import Image from 'next/image'
 import Link from "next/link";
