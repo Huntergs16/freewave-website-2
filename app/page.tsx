@@ -5,8 +5,9 @@ import 'swiper/css';
 
 export default function Home() {
   return (
-    <div className='flex flex-col items-center justify-start'>
+    <div className='flex flex-col items-center justify-start font'>
       <Header />
+      <hr className="h-[1px] mb-4 w-[97%] border-opacity-100 border-stone-200 border-[1px]" />
       <ForSale />
       {/* <HomeImageSlider /> */}
     </div>

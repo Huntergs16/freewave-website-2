@@ -32,11 +32,11 @@ export default function ItemPage({params}: {
         <div className="flex flex-col justify-center items-center min-h-[70vh] h-min w-full px-5 mx-auto font-rajdhani text-black">
         {itemData && (
           <div key={itemData.id} className="h-full w-full grid grid-cols-1 sm:grid-cols-2 justify-center px-1 gap-x-2">
-            <div className="relative h-4/6 min-h-[500px] bg-slate-100">
+            <div className="relative h-1/2 min-h-[500px] bg-stone-100">
               <Image alt="Product Details" fill={true} style={{ objectFit: "contain", objectPosition: "center" }} src={itemData.img} />
             </div>
             <div className="flex flex-col py-12 sm:px-6">
-              <p className="text-3xl font-bold overflow-x-scroll">{itemData?.id}</p>
+              <p className="text-3xl font-bold">{itemData?.id}</p>
               <br />
               {itemData.discount[0] ? (
                 <span className="flex gap-1 items-center">
