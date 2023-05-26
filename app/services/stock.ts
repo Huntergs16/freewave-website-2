@@ -1,6 +1,6 @@
 import { getDocs, collection } from "firebase/firestore"; 
 import { db, storage } from "../../firebase/config";
-import productItem from "@/types/globalTypes";
+import { productItem } from "@/types/globalTypes";
 import { getDownloadURL, ref } from "firebase/storage";
 
 const collection_name = "stock"
