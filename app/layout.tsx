@@ -6,10 +6,6 @@ import Footer from '../components/Footer'
 import Head from 'next/head'
 import { Providers } from '@/redux/provider'
 
-export const metadata = {
-  title: 'Freewave',
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -18,6 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        <title>Freewave</title>
         {/* Add the link tags for the Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
