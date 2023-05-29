@@ -1,9 +1,11 @@
 'use client';
 
-import { productItem } from "@/types/globalTypes";
+import { cartItem, productItem } from "@/types/globalTypes";
 import { useEffect, useState } from "react";
 import { getItem } from "@/app/services/getItem";
 import Image from "next/image";
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '@/redux/features/cartSlice';
 
 interface SizeSelected {
     size: string;
@@ -16,7 +18,7 @@ export default function ItemPage({params}: {
 
     const [sizeSelected, setSizeSelected] = useState<SizeSelected | undefined>();
 
-    const [itemData, setItemData] = useState<productItem | undefined>()
+    const [itemData, setItemData] = useState<productItem | undefined>();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,13 +60,33 @@ export default function ItemPage({params}: {
 function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
     sizeSelected: { size: string, quantity: number } | undefined,
     setSizeSelected: React.Dispatch<React.SetStateAction<{ size: string, quantity: number } | undefined>>,
-    productInfo: productItem | undefined
+    productInfo: productItem | undefined,
   }) {
     const onSizeClicked = (size: string) => {
       console.log(size)
       console.log(productInfo?.[size])
       setSizeSelected({ size, quantity: productInfo?.[size] || 0 });
     }
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+      if (sizeSelected && sizeSelected.quantity > 0) {
+        const itemToAdd:cartItem = {
+        id: productInfo?.id || "",
+        size: sizeSelected?.size || "",
+        quantity: 1,
+        price: productInfo?.price || "0",
+        discount: productInfo?.discount || [false, "0"],
+        img: productInfo?.img || "",
+      }
+        dispatch(addItemToCart(itemToAdd));
+        const anchorElement: HTMLAnchorElement = document.createElement('a');
+        anchorElement.href = '/';
+        // anchorElement.click();
+      }
+
+    };
 
     return (
         <div className="flex flex-col justify-center items-center gap-4 min-h-min font-rajdhani text-black">
@@ -86,7 +108,7 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
             <p className="h-[20vh] max-h-44 overflow-y-scroll">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} max-w-[70vw] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
+            <button onClick={() => handleAddToCart()} disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} max-w-[70vw] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
                 <p>Add to cart</p>
             </button>
         </div>

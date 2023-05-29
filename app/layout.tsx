@@ -1,7 +1,10 @@
+'use client'
+
 import './globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Head from 'next/head'
+import { Providers } from '@/redux/provider'
 
 export const metadata = {
   title: 'Freewave',
@@ -23,13 +26,15 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body className='font-rajdhani text-black min-h-min flex flex-col w-screen max-w-[100rem] mx-auto'>
-        <Navbar />
-        <main className="flex-grow min-h-min">
-          {children}
-        </main>
-        <Footer />
-      </body>
+      <Providers>
+        <body className='font-rajdhani text-black min-h-min flex flex-col w-screen max-w-[100rem] mx-auto'>
+          <Navbar />
+          <main className="flex-grow min-h-min">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </Providers>
     </html>
   )
 }
