@@ -34,7 +34,7 @@ const Cart: React.FC<CartProps> = ({ cartItems }) => {
               <li key={item.id} className='grid grid-cols-5 place-items-center w-full'>
                 <Link href={`/productListing/${item.id}`} key={item.id}>
                   <div className='bg-stone-100'>
-                    <Image className="px-2 py-6" height={150} width={150} style={{objectFit:'contain', objectPosition:'center'}} alt={item.id} src={item.img} />
+                    <Image className="p-2" height={150} width={150} style={{objectFit:'contain', objectPosition:'center'}} alt={item.id} src={item.img} />
                   </div>
                 </Link>
                 <div className='justify-self-start flex gap-2 flex-col justify-start items-start text-sm py-6 px-3'>
