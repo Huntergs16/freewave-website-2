@@ -81,9 +81,6 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
         img: productInfo?.img || "",
       }
         dispatch(addItemToCart(itemToAdd));
-        const anchorElement: HTMLAnchorElement = document.createElement('a');
-        anchorElement.href = '/';
-        // anchorElement.click();
       }
 
     };

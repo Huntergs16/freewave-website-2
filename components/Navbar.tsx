@@ -13,17 +13,17 @@ export default function Navbar() {
             : 
             (
             <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-full h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
-                <ul className="hidden md:flex md:flex-wrap mr-auto justify-center items-center gap-x-2 text-xs sm:text-sm sm:gap-x-4 md:gap-x-5 font-mono">
-                    <li className="font-medium text-lg underline text-center">
+                <ul className="font-semibold hidden md:flex md:flex-wrap mr-auto justify-center items-center gap-x-2 text-xs sm:text-sm sm:gap-x-4 md:gap-x-5 font-mono">
+                    <li className="hover:opacity-60 hover:underline-offset-4 text-lg underline text-center">
                         <Link href="/" >Home</Link>
                     </li>
-                    <li className="font-medium text-lg underline">
+                    <li className="hover:opacity-60 hover:underline-offset-4 text-lg underline">
                     <Link href="/Shop" >Shop</Link>
                     </li>
-                    <li className="font-medium text-lg underline text-center">
+                    <li className="hover:opacity-60 hover:underline-offset-4 text-lg underline text-center">
                         <Link href="/Contact" >Contact</Link>
                     </li>
-                    <li className="font-medium text-lg underline text-center">
+                    <li className="hover:opacity-60 hover:underline-offset-4 text-lg underline text-center">
                         <Link href="/About" >About</Link>
                     </li>
                 </ul>

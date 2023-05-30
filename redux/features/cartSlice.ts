@@ -34,7 +34,7 @@ interface CartState {
       ) => {
         const { itemId, quantity } = action.payload;
         const itemToUpdate = state.items.find(item => item.id === itemId);
-        if (itemToUpdate) {
+        if (itemToUpdate && quantity >= 0) {
           itemToUpdate.quantity = quantity;
         }
       },
