@@ -6,6 +6,7 @@ import { getItem } from "@/app/services/getItem";
 import Image from "next/image";
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '@/redux/features/cartSlice';
+import { ThreeDots } from "react-loader-spinner";
 
 interface SizeSelected {
     size: string;
@@ -62,6 +63,10 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
     setSizeSelected: React.Dispatch<React.SetStateAction<{ size: string, quantity: number } | undefined>>,
     productInfo: productItem | undefined,
   }) {
+
+    const [loading, setLoading] = useState<boolean>(false);
+    const [complete, setComplete] = useState<boolean>(false);
+
     const onSizeClicked = (size: string) => {
       console.log(size)
       console.log(productInfo?.[size])
@@ -70,7 +75,13 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
 
     const dispatch = useDispatch();
 
-    const handleAddToCart = () => {
+    const handleAddToCart = async () => {
+      setLoading(true);
+      await new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 2000);
+      })
       if (sizeSelected && sizeSelected.quantity > 0) {
         const itemToAdd:cartItem = {
         id: productInfo?.id || "",
@@ -81,8 +92,16 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
         img: productInfo?.img || "",
       }
         dispatch(addItemToCart(itemToAdd));
+        setLoading(false);
+        setComplete(true);
+        await new Promise<void>((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, 2000);
+        })
+        setComplete(false);
       }
-
+      else setLoading(false);
     };
 
     return (
@@ -105,8 +124,12 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
             <p className="h-[20vh] max-h-44 overflow-y-scroll">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button onClick={() => handleAddToCart()} disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} max-w-[70vw] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
-                <p>Add to cart</p>
+            <button onClick={() => handleAddToCart()} disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined ? "bg-opacity-40" : "bg-opacity-80"} active:scale-90 transition-transform ease-in-out duration-[50ms] max-w-[70vw] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
+            {loading ? (
+                <ThreeDots height={45} width={45} color="#fff" visible={loading} />
+              ) : (
+                complete ? <Image height={45} width={45} alt="Succesful add to cart" src={"/white-check-mark.png"} /> : <p>Add to cart</p>
+            )}
             </button>
         </div>
     )
