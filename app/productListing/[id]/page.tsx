@@ -128,7 +128,7 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
             {loading ? (
                 <ThreeDots height={45} width={45} color="#fff" visible={loading} />
               ) : (
-                complete ? <Image height={45} width={45} alt="Succesful add to cart" src={"/white-check-mark.png"} /> : <p>Add to cart</p>
+                complete ? <Image loading="eager" height={45} width={45} alt="Succesful add to cart" src={"/white-check-mark.png"} /> : <p>Add to cart</p>
             )}
             </button>
         </div>
