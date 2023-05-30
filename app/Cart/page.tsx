@@ -66,4 +66,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps)(Cart) as React.FC;
