@@ -17,7 +17,7 @@ export default function Navbar() {
         <>
             <DropdownMenu menuShow={menuShow} setMenuShow={setMenuShow}/>
             <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-full h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
-                <ul className="font-semibold hidden sm:flex sm:flex-wrap mr-auto justify-center items-center gap-x-2 text-sm md:gap-x-5 font-mono">
+                <ul className="font-semibold hidden sm:flex sm:flex-wrap mr-auto justify-center items-center gap-x-2 text-sm md:gap-x-5 font-rajdhani">
                     <li className="group transition duration-300 hover:opacity-90 text-base md:text-lg text-center">
                         <Link href="/" >
                             Home
@@ -43,7 +43,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                 </ul>
-                <button name="menu-dropdown" className="block sm:hidden w-max" onClick={(() => setMenuShow(!menuShow))}>
+                <button name="menu-dropdown" className="block sm:hidden w-max active:scale-90 active:opacity-70" onClick={(() => setMenuShow(!menuShow))}>
                     <Image src={"/menu-bars.png"} width={30} height={30} alt="menu"/>
                 </button>
                 <div className="flex h-[10vh] min-h-[60px] justify-center items-center">
@@ -65,17 +65,15 @@ function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: 
     const menuVariants = {
         hidden: {
           x: '-100%', // Start position outside the screen
-          opacity: 0,
           transition: {
-            duration: 0.4,
+            duration: 0.3,
             type: 'bounce', // You can customize the animation type
           },
         },
         visible: {
           x: '0', // End position, fully visible
-          opacity: 1,
           transition: {
-            duration: 0.4,
+            duration: 0.3,
             type: 'bounce', // You can customize the animation type
           },
         },
@@ -88,7 +86,7 @@ function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: 
             variants={menuVariants} 
             className="font-rajdhani flex flex-col items-start bg-white justify-center gap-4 w-screen h-screen fixed z-50 font-semibold text-black p-10 pb-40">
             <div className="grid grid-cols-3 place-items-center w-full h-min">
-                <button className="flex-grow-0 flex-['2 2 0%'] mr-auto text-4xl font-thin active:scale-50 transition-all duration-[25ms] ease-in" onClick={(() => setMenuShow(!menuShow))}>X</button>
+                <button className="flex-grow-0 flex-['2 2 0%'] mr-auto text-4xl font-thin active:scale-50 transition-all duration-75 ease-in" onClick={(() => setMenuShow(!menuShow))}>X</button>
                 <div className="relative w-20">
                     <Link href={"/"}>
                         <Image quality={25} width={100} height={100} src={"/fwa1_nobg.png"} className="" alt="Freewave Logo"/>
@@ -96,34 +94,34 @@ function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: 
                 </div>
             </div>
             <hr className="w-full"/>
-            <div className="flex-grow flex flex-col justify-start gap-6 items-start">
-                <div className="flex items-center group transition duration-300">
+            <div className="flex-grow flex flex-col justify-start gap-6 items-start w-full">
+                <div className="flex items-center group transition duration-300 w-[80%]">
                     <Link className="group transition duration-300 text-2xl" onClick={(() => setMenuShow(!menuShow))} href="/" >
                         Home
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black"></span>
                     </Link>
-                    <Image className="group-hover:translate-x-10 rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all opacity-0 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
+                    <Image className="group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
                 </div>
-                <div className="flex items-center group transition duration-300">
+                <div className="flex items-center group transition duration-300 w-[80%]">
                     <Link className="group transition duration-300 text-2xl" onClick={(() => setMenuShow(!menuShow))} href="/Shop" >
                         Shop
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black"></span>
                     </Link>
-                    <Image className="group-hover:translate-x-10 rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all opacity-0 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
+                    <Image className="group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
                 </div>
-                <div className="flex items-center group transition duration-300">
+                <div className="flex items-center group transition duration-300 w-[80%]">
                     <Link className="group transition duration-300 text-2xl" onClick={(() => setMenuShow(!menuShow))} href="/Contact" >
                         Contact
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black"></span>
                     </Link>
-                    <Image className="group-hover:translate-x-10 rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all opacity-0 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
+                    <Image className="group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
                 </div>
-                <div className="flex items-center group transition duration-300">
+                <div className="flex items-center group transition duration-300 w-[80%]">
                     <Link className="group transition duration-300 text-2xl" onClick={(() => setMenuShow(!menuShow))} href="/About" >
                         About
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black"></span>
                     </Link>
-                    <Image className="group-hover:translate-x-10 rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all opacity-0 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
+                    <Image className="group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300" src={"/skinny-arrow.png"} alt="arrow" width={10} height={10}/>
                 </div>
             </div>
         </motion.div>
