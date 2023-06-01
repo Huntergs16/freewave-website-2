@@ -31,7 +31,7 @@ const Cart: React.FC<CartProps> = ({ cartItems }) => {
               <p>Total</p>
             </div>
             <hr className='w-full'/>
-            <ul className='flex flex-col items-center w-full gap-4 sm:w-5/6'>
+            <ul className='flex flex-col items-center w-full gap-4'>
               {cartItems.map((item) => (
                 <li key={item.id} className='grid grid-cols-5 place-items-center w-full'>
                   <Link href={`/productListing/${item.id}`} key={item.id}>

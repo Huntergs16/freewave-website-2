@@ -20,6 +20,8 @@ export default function ItemPage({params}: {
 
     const [sizeSelected, setSizeSelected] = useState<SizeSelected | undefined>();
 
+    const [quantity, setQuantity] = useState<number>(1);
+
     const [itemData, setItemData] = useState<productItem | undefined>();
 
     useEffect(() => {
@@ -64,7 +66,7 @@ export default function ItemPage({params}: {
                 <p className="sm:text-xl text-lg font-semibold">{`${itemData.price} USD`}</p>
               )}
               <br />
-              <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} />
+              <ProductAdd sizeSelected={sizeSelected} setSizeSelected={setSizeSelected} productInfo={itemData} quantity={quantity} setQuantity={setQuantity} />
             </div>
           </div>
         )}
@@ -72,10 +74,12 @@ export default function ItemPage({params}: {
   );
 }
 
-function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
+function ProductAdd({ sizeSelected, setSizeSelected, productInfo, quantity, setQuantity }: {
     sizeSelected: { size: string, quantity: number } | undefined,
-    setSizeSelected: React.Dispatch<React.SetStateAction<{ size: string, quantity: number } | undefined>>,
+    setSizeSelected: React.Dispatch<React.SetStateAction<SizeSelected | undefined>>,
     productInfo: productItem | undefined,
+    quantity: number,
+    setQuantity: React.Dispatch<React.SetStateAction<number>>,
   }) {
 
     const [loading, setLoading] = useState<boolean>(false);
@@ -100,7 +104,7 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
         const itemToAdd:cartItem = {
         id: productInfo?.id || "",
         size: sizeSelected?.size || "",
-        quantity: 1,
+        quantity,
         price: productInfo?.price || "0",
         discount: productInfo?.discount || [false, "0"],
         img: productInfo?.img || "",
@@ -118,10 +122,14 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
       else setLoading(false);
     };
 
+    const handleQuantity = (newQuantity: number) => {
+      if (newQuantity > 0 && newQuantity <= sizeSelected!.quantity) setQuantity(newQuantity);  
+    }
+
     return (
         <div className="flex flex-col justify-center items-center gap-4 min-h-min font-rajdhani text-black">
             <p className="w-full px-2 sm:px-7 text-base font-semibold opacity-80 self-start">Select Size</p>
-            <div className="w-full sm:w-[90%] h-min p-1 grid grid-rows-2 grid-cols-3 sm:grid-cols-5 gap-x-2">
+            <div className="w-full md:w-[90%] h-min p-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-x-2">
                 <button onClick={() => onSizeClicked("x-small")} className={`${sizeSelected?.size == "x-small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>XS</button>
                 <button onClick={() => onSizeClicked("small")} className={`${sizeSelected?.size == "small" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>S</button>
                 <button onClick={() => onSizeClicked("medium")} className={`${sizeSelected?.size == "medium" ? "bg-black bg-opacity-80 text-white border-black":"bg-white"} h-10 border-slate-200 border-2 rounded-md hover:border-black`}>M</button>
@@ -138,7 +146,14 @@ function ProductAdd({ sizeSelected, setSizeSelected, productInfo }: {
             <p className="h-[20vh] max-h-44 overflow-y-scroll">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo deserunt iure at et molestias debitis id dolorem necessitatibus repudiandae alias! Labore quidem numquam corporis! Ullam voluptatibus minima ea sed architecto?
             </p>
-            <button onClick={() => handleAddToCart()} disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined || loading || complete} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined || loading || complete ? "bg-opacity-40" : "bg-opacity-80 active:scale-90"} transition-transform ease-in-out duration-[50ms] max-w-[70vw] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
+            {sizeSelected && (
+              <div className={`${sizeSelected.quantity === 0 ? "opacity-60":"opacity-100"} flex border-black border-solid border-[1px] w-full items-center justify-around text-xl max-w-[400px] h-12 mb-8`}>
+                <button disabled={sizeSelected.quantity === 0} onClick={() => handleQuantity(quantity - 1)} className='text-3xl sm:text-5xl'>-</button>
+                  <p className='text-base sm:text-xl'>{sizeSelected.quantity === 0 ? "Sold Out":(quantity)}</p>
+                <button disabled={sizeSelected.quantity === 0} onClick={() => handleQuantity(quantity + 1)} className='text-xl sm:text-3xl'>+</button>
+              </div>
+            )}
+            <button onClick={() => handleAddToCart()} disabled={sizeSelected?.quantity === 0 || sizeSelected === undefined || loading || complete} className={`${sizeSelected?.quantity === 0 || sizeSelected === undefined || loading || complete ? "bg-opacity-40" : "bg-opacity-80 active:scale-90"} transition-transform ease-in-out duration-[50ms] max-w-[600px] min-h-[60px] max-h-12 flex justify-center items-center text-white font-bold text-lg w-full shadow-2xl p-3 bg-black border-2 rounded-lg`}>
             {loading ? (
                 <ThreeDots height={45} width={45} color="#fff" visible={loading} />
               ) : (
