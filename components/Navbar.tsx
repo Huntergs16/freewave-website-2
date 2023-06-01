@@ -16,27 +16,27 @@ export default function Navbar() {
     return (
         <>
             <DropdownMenu menuShow={menuShow} setMenuShow={setMenuShow}/>
-            <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-full h-[7vh] min-h-[60px] items-center px-10 font-rajdhani">
-                <ul className="font-semibold hidden sm:flex sm:flex-wrap mr-auto justify-center items-center gap-x-2 text-sm md:gap-x-5 font-rajdhani">
-                    <li className="group transition duration-300 hover:opacity-90 text-base md:text-lg text-center">
+            <div className="text-black grid grid-cols-3 grid-rows-1 justify-center w-full h-[7vh] min-h-[70px] items-center px-10 font-rajdhani">
+                <ul className="font-medium hidden sm:flex sm:flex-wrap mr-auto justify-center items-center gap-x-2 text-sm md:gap-x-5 font-rajdhani">
+                    <li className="group transition duration-300 hover:opacity70 text-base md:text-lg text-center">
                         <Link href="/" >
                             Home
                             <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[.05rem] opacity-50 bg-black"></span>
                         </Link>
                     </li>
-                    <li className="group transition duration-300 hover:opacity-90 text-base md:text-lg text-center">
+                    <li className="group transition duration-300 hover:opacity-70 text-base md:text-lg text-center">
                         <Link href="/Shop" >
                             Shop
                             <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[.05rem] opacity-50 bg-black"></span>
                         </Link>
                     </li>
-                    <li className="group transition duration-300 hover:opacity-90 text-base md:text-lg text-center">
+                    <li className="group transition duration-300 hover:opacity70 text-base md:text-lg text-center">
                         <Link href="/Contact" >
                             Contact
                             <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[.05rem] opacity-50 bg-black"></span>
                         </Link>
                     </li>
-                    <li className="group transition duration-300 hover:opacity-90 text-base md:text-lg text-center">
+                    <li className="group transition duration-300 hover:opacity70 text-base md:text-lg text-center">
                         <Link href="/About" >
                             About
                             <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[.05rem] opacity-50 bg-black"></span>
@@ -44,7 +44,7 @@ export default function Navbar() {
                     </li>
                 </ul>
                 <button name="menu-dropdown" className="block sm:hidden w-max active:scale-90 active:opacity-70" onClick={(() => setMenuShow(!menuShow))}>
-                    <Image src={"/menu-bars.png"} width={30} height={30} alt="menu"/>
+                    <Image src={"/menu-bars-new4.png"} quality={100} width={32} height={32} alt="menu"/>
                 </button>
                 <div className="flex h-[10vh] min-h-[60px] justify-center items-center">
                     {/* <img src="/fwa1_nobg.png" alt="FWA logo" className="object-cover pointer-events-none"/> */}

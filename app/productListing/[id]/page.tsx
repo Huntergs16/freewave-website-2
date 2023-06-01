@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '@/redux/features/cartSlice';
 import { ThreeDots } from "react-loader-spinner";
+import Link from "next/link";
 
 interface SizeSelected {
     size: string;
@@ -32,7 +33,20 @@ export default function ItemPage({params}: {
       }, [params.id]);
     
     return (
-        <div className="flex flex-col justify-center items-center min-h-[70vh] h-min w-full px-5 mx-auto font-rajdhani text-black">
+        <div className="flex flex-col justify-center gap-4 items-center min-h-[70vh] h-min w-full px-5 mx-auto font-rajdhani text-black">
+          <div className="justify-self-start place-self-start flex items-center group transition duration-300 min-w-[140px] w-[45%] sm:w-max">
+            <Link className="group transition duration-300 text-base hover:opacity-70" href="/Shop">
+              Continue Shopping
+              <span className="block sm:max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black"></span>
+            </Link>
+            <Image
+              className="group-hover:translate-x-10 ml-auto ease-in-out transition-all opacity-100 duration-300"
+              src={"/skinny-arrow.png"}
+              alt="arrow"
+              width={10}
+              height={10}
+            />
+          </div>
         {itemData && (
           <div key={itemData.id} className="h-full w-full grid grid-cols-1 sm:grid-cols-2 justify-center px-1 gap-x-2">
             <div className="relative h-1/2 min-h-[500px] bg-stone-100">

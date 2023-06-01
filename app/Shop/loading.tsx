@@ -2,7 +2,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export default async function Loading() {
 
-
     return (
       <div className='flex flex-col items-center justify-start px-5'>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-1 gap-y-2 w-full h-min px-1 font-rajdhani text-black">
