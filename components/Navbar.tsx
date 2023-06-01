@@ -66,15 +66,15 @@ function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: 
         hidden: {
           x: '-100%', // Start position outside the screen
           transition: {
-            duration: 0.3,
-            type: 'bounce', // You can customize the animation type
+            duration: 0.2,
+            type: 'linear', // You can customize the animation type
           },
         },
         visible: {
           x: '0', // End position, fully visible
           transition: {
-            duration: 0.3,
-            type: 'bounce', // You can customize the animation type
+            duration: 0.2,
+            type: 'linear', // You can customize the animation type
           },
         },
       };
