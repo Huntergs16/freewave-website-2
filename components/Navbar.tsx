@@ -93,7 +93,7 @@ function DropdownMenu({menuShow, setMenuShow}: {menuShow: boolean, setMenuShow: 
                     </Link>
                 </div>
             </div>
-            <hr className="w-full"/>
+            <hr className={`w-full ${menuShow ? "" : "hidden"}`}/>
             <div className="flex-grow flex flex-col justify-start gap-6 items-start w-full">
                 <div className="flex items-center group transition duration-300 w-[80%]">
                     <Link className="group transition duration-300 text-2xl" onClick={(() => setMenuShow(!menuShow))} href="/" >
