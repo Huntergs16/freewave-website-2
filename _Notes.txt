@@ -1,0 +1,22 @@
+NEEDS:
+======
+
+1. Cartbox Persistence
+    - Use cookies or db to store cartbox items
+
+2. Account creation and information storage
+
+3. Full media access
+    - All necessary images
+    - Prices (Old and New)
+
+
+3. Standardized styling
+
+
+NICE TO HAVE:
+=============
+
+1. Full Website Plan
+    - Mockups
+    - Sitemap
