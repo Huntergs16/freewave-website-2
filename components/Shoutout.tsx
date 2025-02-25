@@ -22,7 +22,7 @@ export default function ShoutOut({
     >
       <img src={image} alt={name} width={200} height={200} />
       <p className='text-2xl'>{name}</p>
-      <p className='text-xl'>{description}</p>
+      {/* <p className='text-xl'>{description}</p> */}
     </Link>
   );
 }

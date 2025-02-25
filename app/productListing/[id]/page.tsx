@@ -58,6 +58,7 @@ export default function ItemPage({ params }: { params: { id: string } }) {
         >
           <div className='relative h-1/2 min-h-[500px] bg-stone-100'>
             <img
+              className='w-full h-full'
               alt='Product Details'
               // fill={true}
               style={{ objectFit: "contain", objectPosition: "center" }}
@@ -127,7 +128,7 @@ function ProductAdd({
     await new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
-      }, 2000);
+      }, 500);
     });
     if (sizeSelected && sizeSelected.quantity > 0) {
       const itemToAdd: cartItem = {
@@ -153,7 +154,7 @@ function ProductAdd({
       await new Promise<void>((resolve) => {
         setTimeout(() => {
           resolve();
-        }, 2000);
+        }, 500);
       });
       setComplete(false);
     } else setLoading(false);

@@ -25,9 +25,9 @@ export default function ForSale() {
           key={item.id}
           className='h-[80vw] min-h-[300px] max-h-[30vh] sm:max-h-[30vh] lg:max-h-[40vh] sm:h-[35vw] w-full flex flex-col justify-start items-start'
         >
-          <div className='relative h-[90%] w-full bg-stone-100'>
+          <div className='relative h-[90%] w-full bg-stone-100 overflow-hidden'>
             <img
-              className='px-2 py-6 sm:p-4 lg:p-8'
+              className='px-2 py-6 sm:p-4 lg:p-8 h-full w-full'
               alt={item.id}
               // fill={true}
               style={{ objectFit: "contain", objectPosition: "center" }}
