@@ -17,6 +17,5 @@ export interface cartItem {
   size: string;
   quantity: number;
   price: string;
-  discount: [boolean, string];
   [key: string];
 }

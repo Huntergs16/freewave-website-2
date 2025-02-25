@@ -20,7 +20,7 @@ export default function ShoutOut({
       className='flex flex-col items-center gap-4 cursor-pointer'
       target='_blank'
     >
-      <Image src={image} alt={name} width={200} height={200} />
+      <img src={image} alt={name} width={200} height={200} />
       <p className='text-2xl'>{name}</p>
       <p className='text-xl'>{description}</p>
     </Link>

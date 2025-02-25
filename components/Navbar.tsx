@@ -48,9 +48,9 @@ export default function Navbar() {
           className='block sm:hidden w-max active:scale-90 active:opacity-70'
           onClick={() => setMenuShow(!menuShow)}
         >
-          <Image
+          <img
             src={"/menu-bars-new4.png"}
-            quality={100}
+            // quality={100}
             width={32}
             height={32}
             alt='menu'
@@ -60,8 +60,8 @@ export default function Navbar() {
           {/* <img src="/fwa1_nobg.png" alt="FWA logo" className="object-cover pointer-events-none"/> */}
           <div className='relative w-20'>
             <Link href={"/"}>
-              <Image
-                quality={25}
+              <img
+                // quality={25}
                 width={100}
                 height={100}
                 src={"/fwa1_nobg.png"}
@@ -117,8 +117,8 @@ function DropdownMenu({
         </button>
         <div className='relative w-20'>
           <Link href={"/"}>
-            <Image
-              quality={25}
+            <img
+              // quality={25}
               width={100}
               height={100}
               src={"/fwa1_nobg.png"}
@@ -139,7 +139,7 @@ function DropdownMenu({
             Home
             <span className='block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black'></span>
           </Link>
-          <Image
+          <img
             className='group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300'
             src={"/skinny-arrow.png"}
             alt='arrow'
@@ -156,7 +156,7 @@ function DropdownMenu({
             Shop
             <span className='block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black'></span>
           </Link>
-          <Image
+          <img
             className='group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300'
             src={"/skinny-arrow.png"}
             alt='arrow'
@@ -173,7 +173,7 @@ function DropdownMenu({
             Contact
             <span className='block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black'></span>
           </Link>
-          <Image
+          <img
             className='group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300'
             src={"/skinny-arrow.png"}
             alt='arrow'
@@ -190,7 +190,7 @@ function DropdownMenu({
             About
             <span className='block max-w-0 group-hover:max-w-full transition-all duration-300 h-[0.05rem] opacity-50 bg-black'></span>
           </Link>
-          <Image
+          <img
             className='group-hover:translate-x-10 ml-auto sm:ml-0 sm:rotate-90 group-hover:rotate-0 ease-in-out group-hover:opacity-100 transition-all sm:opacity-0 opacity-100 duration-300'
             src={"/skinny-arrow.png"}
             alt='arrow'
